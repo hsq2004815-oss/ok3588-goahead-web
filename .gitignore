@@ -1,0 +1,33 @@
+# Build artifacts
+*.o
+*.a
+*.so
+goahead_prj/goahead
+goahead_prj/lib/
+libgoahead/libgo.a
+libgoahead/libgo.so
+
+# Runtime data
+goahead_prj/data/
+goahead_prj/goahead.log
+goahead_prj/goahead.pid
+goahead_prj/web/image_states.json
+goahead_prj/web/videos/
+goahead_prj/web/processed_videos/
+goahead_prj/web/images/
+goahead_prj/web/processed/
+goahead_prj/web/model/
+
+# Secrets and local certificates
+goahead_prj/self.key
+*.pem
+*.key
+
+# Local backup folders
+goahead_prj/backup_*/
+
+# Editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

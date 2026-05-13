@@ -1,0 +1,17 @@
+[Unit]
+Description=GoAhead Codex Web Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=forlinx
+Group=forlinx
+WorkingDirectory=/home/forlinx/Desktop/GUO_teacher/codex-backup/goahead_prj
+Environment=LD_LIBRARY_PATH=/home/forlinx/Desktop/GUO_teacher/codex-backup/goahead_prj/lib
+ExecStart=/home/forlinx/Desktop/GUO_teacher/codex-backup/goahead_prj/goahead
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
