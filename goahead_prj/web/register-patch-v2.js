@@ -94,6 +94,9 @@
   }
 
   function injectRegisterButton() {
+    if (location.hash.indexOf("/login") < 0) {
+      return;
+    }
     var loginButton = findLoginButton();
     if (!loginButton || document.getElementById("registerPatchButton")) {
       if (!document.getElementById("registerPatchButton") && location.hash.indexOf("/login") >= 0) {
@@ -131,11 +134,22 @@
   }
 
   function tick() {
-    if (location.hash.indexOf("/login") >= 0 || !injected) {
-      injectRegisterButton();
+    var button = document.getElementById("registerPatchButton");
+    var mask = document.getElementById("registerPatchMask");
+    if (location.hash.indexOf("/login") < 0) {
+      if (button) {
+        button.remove();
+      }
+      if (mask) {
+        mask.remove();
+      }
+      injected = false;
+      return;
     }
+    injectRegisterButton();
   }
 
   setInterval(tick, 500);
+  window.addEventListener("hashchange", tick);
   document.addEventListener("DOMContentLoaded", tick);
 })();
